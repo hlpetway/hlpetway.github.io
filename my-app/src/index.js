@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React, { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 import { Box, ColorSchemeProvider } from "gestalt";
+import App from "./App";
 
 const html = document.querySelector("html");
 html.setAttribute("dir", "ltr");
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ColorSchemeProvider colorScheme="dark" fullDimensions>
+  <StrictMode>
+    <ColorSchemeProvider colorScheme="light" fullDimensions>
       <Box color="default" height="100%" width="100%">
         <App />
       </Box>
     </ColorSchemeProvider>
-  </React.StrictMode>
+  </StrictMode>
 );

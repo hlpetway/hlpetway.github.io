@@ -1,42 +1,42 @@
-import { React, useEffect, useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 
 function getPins() {
   const pins = [
     {
       color: '#2b3938',
-      height: 563,
-      src: 'https://imgur.com/4a50XsW',
+      height: 316,
+      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
       width: 474,
-      name: 'An inhabitant of the Alhambra in Grenada, Spain. ',
+      name: 'the Hang Son Doong cave in Vietnam the Hang Son Doong cave in Vietnam the Hang Son Doong cave in Vietnam ',
     },
     {
       color: '#8e7439',
-      height: 563,
-      src: 'https://imgur.com/xdGtNty',
+      height: 1081,
+      src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
       width: 474,
-      name: 'Walter takes a nap on the side of the trail to St John Fortress in Kotor, Montenegro.',
+      name: 'La Gran Muralla, Pekín, China',
     },
     {
       color: '#698157',
-      height: 533,
-      src: 'https://imgur.com/JR2OyG3',
+      height: 711,
+      src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
       width: 474,
-      name: 'A local takes a nap in Porto, Portugal.',
+      name: 'Plitvice Lakes National Park, Croatia',
     },
     {
       color: '#4e5d50',
-      height: 625,
-      src: 'https://imgur.com/wSqMAJU',
+      height: 632,
+      src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
       width: 474,
-      name: 'Theo, caretaker of the Henry Miller Museum in Big Sur, California..',
+      name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
     },
     {
       color: '#6d6368',
-      height: 500,
-      src: 'https://imgur.com/WZLKyyh',
+      height: 710,
+      src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
       width: 474,
-      name: 'A quick photo with Walter on the way down from St John Fortress in Kotor Montenegro.',
+      name: 'Border of China and Vietnam',
     },
   ];
 
@@ -73,7 +73,9 @@ export default function Example() {
     });
   }, []);
 
-  useEffect(() => gridRef.current?.handleResize(), [width]);
+  useEffect(() => {
+    gridRef.current?.handleResize();
+  }, [width]);
 
   const updateWidth = ({ target }) => {
     setWidth(Number(target.value));
