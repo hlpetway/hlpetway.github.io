@@ -1,5 +1,5 @@
 import { React, useEffect, useId, useRef, useState } from 'react';
-import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
+import { Box, Flex, Image, Heading, Label, Link, Masonry, Text } from 'gestalt';
 
 function getPins() {
   const pins = [
@@ -123,11 +123,13 @@ export default function Example() {
 
   return (
     <Box padding={4}>
-      <Flex direction="column" gap={4}>
+      <Flex direction="column" flex="grow" gap={4}>
         <Flex alignItems="center" direction="column">
           <Flex.Item>
             <Label htmlFor={labelId}>
-              <Text>Cats Around The World</Text>
+              <Heading accessibilityLevel='1' align='center'>
+                Cats Around The World
+              </Heading>
             </Label>
           </Flex.Item>
         </Flex>
@@ -142,7 +144,7 @@ export default function Example() {
             outline: '3px solid #ddd',
             overflowY: 'scroll',
             padding: '20px',
-            width: `${width}px`,
+            width: '80%',
           }}
         >
           {scrollContainerRef.current && (
@@ -161,6 +163,14 @@ export default function Example() {
           )}
         </div>
       </Flex>
+      <Flex alignItems="center" direction="column">
+          <Flex.Item>
+            <Label htmlFor={labelId}>
+              <Text>This is an example of the <Link display='inline' underline='always' href='https://gestalt.pinterest.systems/get_started/about_us'>Masonry Layout</Link></Text>
+              <Text>This gallery can be resized and the columns will reflow to fit the space. Over slow connections, users will see a place holder block.</Text>
+            </Label>
+          </Flex.Item>
+        </Flex>
     </Box>
   );
 }
