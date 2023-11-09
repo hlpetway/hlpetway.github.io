@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { React, useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 
 function getPins() {
@@ -73,9 +73,7 @@ export default function Example() {
     });
   }, []);
 
-  useEffect(() => {
-    gridRef.current?.handleResize();
-  }, [width]);
+  useEffect(() => gridRef.current?.handleResize(), [width]);
 
   const updateWidth = ({ target }) => {
     setWidth(Number(target.value));
