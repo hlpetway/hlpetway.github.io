@@ -1,46 +1,88 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { React, useEffect, useId, useRef, useState } from 'react';
 import { Box, Flex, Image, Label, Masonry, Text } from 'gestalt';
 
 function getPins() {
   const pins = [
     {
       color: '#2b3938',
-      height: 316,
-      src: 'https://i.ibb.co/sQzHcFY/stock9.jpg',
-      width: 474,
-      name: 'the Hang Son Doong cave in Vietnam the Hang Son Doong cave in Vietnam the Hang Son Doong cave in Vietnam ',
+      height: 563,
+      src: 'https://imgur.com/4a50XsW.jpg',
+      width: 1000,
+      name: 'An inhabitant of the Alhambra in Grenada, Spain. ',
     },
     {
       color: '#8e7439',
-      height: 1081,
-      src: 'https://i.ibb.co/zNDxPtn/stock10.jpg',
-      width: 474,
-      name: 'La Gran Muralla, Pekín, China',
+      height: 563,
+      src: 'https://i.imgur.com/xdGtNty.jpg',
+      width: 1000,
+      name: 'Walter takes a nap on the side of the trail to St John Fortress in Kotor, Montenegro.',
     },
     {
       color: '#698157',
-      height: 711,
-      src: 'https://i.ibb.co/M5TdMNq/stock11.jpg',
-      width: 474,
-      name: 'Plitvice Lakes National Park, Croatia',
+      height: 533,
+      src: 'https://imgur.com/JR2OyG3.jpg',
+      width: 300,
+      name: 'A local takes a nap in Porto, Portugal.'
     },
     {
       color: '#4e5d50',
-      height: 632,
-      src: 'https://i.ibb.co/r0NZKrk/stock12.jpg',
-      width: 474,
-      name: 'Ban Gioc – Detian Falls : 2 waterfalls straddling the Vietnamese and Chinese border.',
+      height: 625,
+      src: 'https://imgur.com/wSqMAJU.jpg',
+      width: 500,
+      name: 'Theo, caretaker of the Henry Miller Museum in Big Sur, California..',
     },
     {
       color: '#6d6368',
-      height: 710,
-      src: 'https://i.ibb.co/zmFd0Dv/stock13.jpg',
-      width: 474,
-      name: 'Border of China and Vietnam',
+      height: 500,
+      src: 'https://imgur.com/WZLKyyh.jpg',
+      width: 750,
+      name: 'A quick photo with Walter on the way down from St John Fortress in Kotor Montenegro.',
+    },
+    {
+      color: '#6d6368',
+      height: 500,
+      src: 'https://i.imgur.com/I0YLbO6.jpg',
+      width: 500,
+      name: 'Raoul does a big stretch in Seattle, WA.',
+    },
+    {
+      color: '#6d6368',
+      height: 667,
+      src: 'https://i.imgur.com/LUeTMCi.jpg',
+      width: 500,
+      name: 'Kevin kindly requests that you open the door again in Panama City Beach, FL.',
+    },
+    {
+      color: '#6d6368',
+      height: 563,
+      src: 'https://i.imgur.com/NpQdD9p.jpg',
+      width: 750,
+      name: 'A kitten stops for a quick chat in Bali, Indonesia..',
+    },
+    {
+      color: '#6d6368',
+      height: 500,
+      src: 'https://i.imgur.com/M58zKg6.jpg',
+      width: 750,
+      name: 'A local enjoys a warm nap on the fortress walls in Dubrovnik, Croatia.',
+    },
+    {
+      color: '#6d6368',
+      height: 533,
+      src: 'https://i.imgur.com/81glb0l.jpg',
+      width: 300,
+      name: 'Elvis borrows my shopping bag at Thee Fish Bowl in Evanston, IL.',
+    },
+    {
+      color: '#6d6368',
+      height: 630,
+      src: 'https://i.imgur.com/RULlh6m.jpg',
+      width: 472,
+      name: 'Leonards office hours are open at Neko Cafe in Seattle, WA.',
     },
   ];
 
-  const pinList = [...new Array(3)].map(() => [...pins]).flat();
+  const pinList = [...new Array(2)].map(() => [...pins]).flat();
   return Promise.resolve(pinList);
 }
 
@@ -61,7 +103,7 @@ function GridComponent({ data }) {
 
 export default function Example() {
   const [pins, setPins] = useState([]);
-  const [width, setWidth] = useState(700);
+  const [width, setWidth] = useState(955);
   const scrollContainerRef = useRef();
   const gridRef = useRef();
 
@@ -73,45 +115,33 @@ export default function Example() {
     });
   }, []);
 
-  useEffect(() => {
-    gridRef.current?.handleResize();
-  }, [width]);
+  useEffect(() => gridRef.current?.handleResize(), [width]);
 
   const updateWidth = ({ target }) => {
     setWidth(Number(target.value));
   };
 
   return (
-    <Box padding={2}>
+    <Box padding={4}>
       <Flex direction="column" gap={4}>
         <Flex alignItems="center" direction="column">
           <Flex.Item>
             <Label htmlFor={labelId}>
-              <Text>Container Width</Text>
+              <Text>Cats Around The World</Text>
             </Label>
           </Flex.Item>
-          <input
-            id={labelId}
-            type="range"
-            defaultValue={800}
-            onChange={updateWidth}
-            min={200}
-            max={800}
-            step={5}
-            style={{ width: '400px', display: 'block', margin: '10px auto' }}
-          />
         </Flex>
-
         <div
           tabIndex={0}
           ref={(el) => {
             scrollContainerRef.current = el;
           }}
           style={{
-            height: '300px',
-            margin: '0 auto',
+            height: '600px',
+            margin: 'auto',
             outline: '3px solid #ddd',
             overflowY: 'scroll',
+            padding: '20px',
             width: `${width}px`,
           }}
         >
