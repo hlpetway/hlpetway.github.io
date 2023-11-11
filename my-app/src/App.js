@@ -29,7 +29,7 @@ function getPins() {
       height: 625,
       src: 'https://imgur.com/wSqMAJU.jpg',
       width: 500,
-      name: 'Theo, caretaker of the Henry Miller Museum in Big Sur, California..',
+      name: 'Theo, caretaker of the Henry Miller Museum in Big Sur, California.',
     },
     {
       color: '#6d6368',
@@ -80,6 +80,27 @@ function getPins() {
       width: 472,
       name: 'Leonards office hours are open at Neko Cafe in Seattle, WA.',
     },
+    {
+      color: '#6d6368',
+      src: 'https://i.imgur.com/aGUze9c.jpg',
+      height: 500,
+      width: 750,
+      name: 'A sleepy cat basks in the sunset on the old city wall in Dubrovnik, Croatia.'
+    },
+    {
+      color: '#0c3587',
+      src: 'https://i.imgur.com/Wa65ATf.jpg',
+      height: 563,
+      width: 1000,
+      name: 'Guillaume hatches evil plots at Masion De Moggy in Edinburgh.'
+    },
+    {
+      color: '#4575d6',
+      src: 'https://i.imgur.com/hO4E90O.jpg',
+      height: 500,
+      width: 750,
+      name: 'A local offers directions in Oban, Scotland.'
+    },
   ];
 
   const pinList = [...new Array(2)].map(() => [...pins]).flat();
@@ -101,7 +122,7 @@ function GridComponent({ data }) {
   );
 }
 
-export default function Example() {
+export default function Gallery() {
   const [pins, setPins] = useState([]);
   const [width, setWidth] = useState(955);
   const scrollContainerRef = useRef();
@@ -149,7 +170,7 @@ export default function Example() {
         >
           {scrollContainerRef.current && (
             <Masonry
-              columnWidth={170}
+              columnWidth={300}
               gutterWidth={20}
               items={pins}
               layout="basicCentered"
@@ -163,11 +184,10 @@ export default function Example() {
           )}
         </div>
       </Flex>
-      <Flex alignItems="center" direction="column">
+      <Flex alignItems="center" flex="grow" direction="column">
           <Flex.Item>
             <Label htmlFor={labelId}>
-              <Text>This is an example of the <Link display='inline' underline='always' href='https://gestalt.pinterest.systems/get_started/about_us'>Masonry Layout</Link></Text>
-              <Text>This gallery can be resized and the columns will reflow to fit the space. Over slow connections, users will see a place holder block.</Text>
+              <Text align="start" overflow="breakWord">This is an example of the <Link display='inline' underline='always' href='https://gestalt.pinterest.systems/get_started/about_us'>Masonry Layout.</Link> This gallery can be resized and the columns will reflow to fit the space. Over slow connections, users will see a place holder block.</Text>
             </Label>
           </Flex.Item>
         </Flex>
